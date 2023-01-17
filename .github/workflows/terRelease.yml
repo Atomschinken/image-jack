@@ -23,7 +23,7 @@ jobs:
       - name: Collect release information
         run: |
           export EXT_COMMENT=`${GITHUB_EVENT_PATH} | jq  --raw-output '.release.body | @sh'`
-          export EXT_URL=`${GITHUB_EVENT_PATH} | jq --raw-output '.release.zipball_url | @sh`
+          export EXT_URL=`${GITHUB_EVENT_PATH} | jq --raw-output '.release.zipball_url | @sh'`
           export EXT_VERSION=`${GITHUB_EVENT_PATH} | jq --raw-output '.release.tag_name | ltrimstr("v") | @sh'`
 
       # Setup PHP and composer
@@ -37,7 +37,7 @@ jobs:
       # Install tailor CLI
       - name: Install tailor
         run: composer global require typo3/tailor --prefer-dist --no-progress --no-suggest
-        
+
       - name: Output variables
         run: echo "$EXT_COMMENT"
 
