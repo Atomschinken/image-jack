@@ -28,6 +28,9 @@ jobs:
 
         env:
           EVENT_JSON: ${{ toJSON(github.event) }}
+          EXT_COMMENT: ${{ toJSON(github.event.release.body) }}
+          EXT_URL: ${{ toJSON(github.event.release.zipball_url) }}
+          EXT_VERSION: ${{ toJSON(github.event.release.tag_name) }}
 
       # Setup PHP and composer
       - name: Setup PHP
