@@ -22,9 +22,9 @@ jobs:
       # Extract release information from GitHub event
       - name: Collect release information
         run: |
-          export EXT_COMMENT=`$EVENT_JSON | jq  --raw-output '.release.body | @sh'`
-          export EXT_URL=`$EVENT_JSON | jq --raw-output '.release.zipball_url | @sh'`
-          export EXT_VERSION=`$EVENT_JSON | jq --raw-output '.release.tag_name | ltrimstr("v") | @sh'`
+          export EXT_COMMENT=`${EVENT_JSON} | jq  --raw-output '.release.body | @sh'`
+          export EXT_URL=`${EVENT_JSON} | jq --raw-output '.release.zipball_url | @sh'`
+          export EXT_VERSION=`${EVENT_JSON} | jq --raw-output '.release.tag_name | ltrimstr("v") | @sh'`
 
         env:
           EVENT_JSON: ${{ toJSON(github.event) }}
