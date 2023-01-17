@@ -30,9 +30,9 @@ jobs:
       - name: Output variables
         run: echo "${EXT_COMMENT}"
         env:
-          EXT_COMMENT: ${{ toJSON(github.event.release.body) }}
-          EXT_URL: ${{ toJSON(github.event.release.zipball_url) }}
-          EXT_VERSION: ${{ toJSON(github.event.release.tag_name) }}
+          EXT_COMMENT: ${{ github.event.release.body }}
+          EXT_URL: ${{ github.event.release.zipball_url }}
+          EXT_VERSION: ${{ github.event.release.tag_name }}
 
       # - name: Publish extension to TER
       #   run: TYPO3_API_TOKEN="${{ secrets.api-token }}" php ~/.composer/vendor/bin/tailor ter:publish --comment "${EXT_COMMENT}" --artefact "${EXT_URL}" ${EXT_VERSION}
