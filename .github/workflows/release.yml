@@ -6,7 +6,7 @@ on:
 
 jobs:
   ter-release:
-    uses: ./.github/actions/terRelease.yml
+    uses: ./.github/workflows/terRelease.yml@main
     with:
       php-version: '8.1'
     secrets:
